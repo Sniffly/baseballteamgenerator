@@ -1,9 +1,15 @@
 <html>
+  <!--
+    Baseball Team Generator
+    --DONE--
+      pull ai-created palette from colormind.io
+      edit svg with colors from palette
+  -->
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
       var palette;
-      function UserAction() {
+      function generate() {
         var url = "http://colormind.io/api/";
         var data = {
           model : "default",
@@ -20,7 +26,7 @@
             
             $capSVG = $("#cap");
             $(".capPrimary", $capSVG).attr('style', 'fill:rgb('+palette[0]+')');
-            $(".capBrim", $capSVG).attr('style', 'fill:rgb('+palette[1]+')');
+            $(".capBrim", $capSVG).attr('style', 'fill:rgb('+palette[3]+')');
             
             var img = new Image();
             img.onload=function(){
@@ -52,7 +58,8 @@
       }
     </style>
   </head>
-  <body>
+  <body onload="generate()">
+  <button type="submit" onclick="generate()">OK</button>
   <div id="capDiv">
     <svg id="cap" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240.25 169.5">
       <defs>
@@ -78,6 +85,5 @@
   </div>
   <p id="result">result</p>
   <canvas width=640 height=480 id="canvas"></canvas>
-  <button type="submit" onclick="UserAction()">OK</button>
   </body>
 </html>
