@@ -24,6 +24,7 @@
             var c=document.getElementById("canvas");
             var ctx=c.getContext("2d");
             
+            
             $capSVG = $("#cap");
             $(".capPrimary", $capSVG).attr('style', 'fill:rgb('+palette[0]+')');
             $(".capBrim", $capSVG).attr('style', 'fill:rgb('+palette[4]+')');
@@ -37,13 +38,16 @@
             }
             img.src = $capSVG;
             
-            
             ctx.fillStyle = 'rgb('+palette[0]+')';
             ctx.fillRect(0,0,25,25);
             ctx.fillStyle = 'rgb('+palette[1]+')';
-            ctx.fillRect(25,25,25,25);
+            ctx.fillRect(25,0,25,25);
             ctx.fillStyle = 'rgb('+palette[2]+')';
-            ctx.fillRect(50,50,25,25);
+            ctx.fillRect(50,0,25,25);
+            ctx.fillStyle = 'rgb('+palette[3]+')';
+            ctx.fillRect(75,0,25,25);
+            ctx.fillStyle = 'rgb('+palette[4]+')';
+            ctx.fillRect(100,0,25,25);
           }
         }
 
@@ -56,7 +60,6 @@
         height:640px;
         width:480px;
       }
-      .cap
     </style>
   </head>
   <body onload="generate()">
@@ -65,7 +68,8 @@
     <svg id="cap" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240.25 169.5">
       <defs>
         <style>
-          .capBG{fill:#ffffff;}
+          .capBrim,.capPrimary{stroke: black;}
+          .capBG{fill:none;}
           .capBrim{fill:#ff0000;}
           .capPrimary{fill:#0000ff;}
         </style>
